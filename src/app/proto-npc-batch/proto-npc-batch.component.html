@@ -1,0 +1,51 @@
+<div class="panel panel-default">
+  <table class="table">
+    <tr>
+      <th>Stats</th>
+      <th>Traits</th>
+      <th>Relationships</th>
+    </tr>
+    <tr
+      *ngFor="let protoNpc of proto_npcs"
+      [id]="protoNpc.id">
+      <td>
+        <div class="container-fluid">
+          <div class="row">
+            <div
+              *ngFor="let stat of protoNpc.stats"
+              class="col-md-6 col-xs-6 col-sm-6">
+              <span class="label label-default">{{stat.name}}</span> {{stat.pool_size}}d{{stat.die_size}}
+            </div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul class="list-group">
+          <li
+            *ngFor='let trait of protoNpc.traits'
+            class="list-group-item">
+            <span class="label label-primary">{{trait.name}}</span> {{trait.pool_size}}d{{trait.die_size}}
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul class="list-group">
+          <li
+            *ngFor='let relationship of protoNpc.relationships'
+            class="list-group-item">
+            <span class="label label-primary">{{relationship.name}}</span> {{relationship.pool_size}}d{{relationship.die_size}}
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <hr>
+  <h4>Free Dice</h4>
+  <div class="container-fluid">
+    <div
+      *ngFor="let pool of free_dice"
+      class="col-md-1 col-xs-1 col-sm-1">
+      {{pool.pool_size}}d{{pool.die_size}}
+    </div>
+  </div>
+</div>
